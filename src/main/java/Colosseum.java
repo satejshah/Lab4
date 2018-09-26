@@ -128,9 +128,6 @@ public class Colosseum {
 
         myScan.nextLine();
 
-
-
-
         return tempPokemon;
     }
 
@@ -159,7 +156,16 @@ public class Colosseum {
      * Write this function.
      */
     public static void determineWinner() {
-        System.out.println("Implement me!");
+
+        Pokemon winner;
+        if (firstPokemon.hitPoints > 0) {
+            winner = firstPokemon;
+        } else {
+            winner = secondPokemon;
+        }
+
+        System.out.println(winner.name + " is the winner!");
+
     }
 
     /**
