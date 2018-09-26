@@ -72,7 +72,18 @@ public class Colosseum {
      *         Implement this function.
      */
     public static Pokemon buildPokemon() {
+
         Pokemon tempPokemon = new Pokemon();
+
+
+
+        String name = "";
+        do {
+            System.out.println("Please Enter You Pokemon Name: ");
+            name = myScan.nextLine();
+        } while (name.equals(""));
+        tempPokemon.name = name;
+
         return tempPokemon;
     }
 
@@ -113,14 +124,14 @@ public class Colosseum {
         System.out.println("Player 1, build your Pokemon!");
         System.out.println("=================");
         firstPokemon = buildPokemon();
-        firstPokemon.name = "Chuchu";
+        //firstPokemon.name = "Chuchu";
 
         System.out.println("");
 
         System.out.println("Player 2, build your Pokemon!");
         System.out.println("==================");
         secondPokemon = buildPokemon();
-        secondPokemon.name = "Xyz";
+        //secondPokemon.name = "Xyz";
     }
 
     /**
