@@ -145,7 +145,16 @@ public class Colosseum {
      * Implement this function.
      */
     public static void printWhoIsAhead() {
-        System.out.println("Implement me!");
+
+        Pokemon aheadPlayer;
+
+        if (firstPokemon.hitPoints > secondPokemon.hitPoints) {
+            aheadPlayer = firstPokemon;
+        } else {
+            aheadPlayer = secondPokemon;
+        }
+
+        System.out.println(aheadPlayer.name + " is ahead!");
     }
 
     /**
