@@ -21,6 +21,11 @@ public class Colosseum {
     static final int MAX_NUM_ROUNDS = 10;
 
     /**
+     * The maximum number of combined attacked and defense level.
+     */
+    static final int MAX_COMBINED_LEVEL = 50;
+
+    /**
      * The first Pokemon we will be fighting.
      */
     static Pokemon firstPokemon;
@@ -76,13 +81,55 @@ public class Colosseum {
         Pokemon tempPokemon = new Pokemon();
 
 
-
+        //prompt for name
         String name = "";
         do {
             System.out.println("Please Enter You Pokemon Name: ");
             name = myScan.nextLine();
         } while (name.equals(""));
         tempPokemon.name = name;
+
+        //prompt for hit points
+
+        //int hitPoints = 0;
+        System.out.print("How many hit points will it have? (1-50): ");
+        int hitPoints = myScan.nextInt();
+
+        while (hitPoints < 1 || hitPoints > MAX_HIT_POINTS) {
+            System.out.print("Sorry. Hit points must be between 1 and 50:");
+            hitPoints = myScan.nextInt();
+        }
+
+        tempPokemon.hitPoints = hitPoints;
+
+        System.out.println("Split fifty points between attack level and defense level");
+
+        //int attackLevel = 0;
+        System.out.print("Enter your attack level (1-49): ");
+        int attackLevel = myScan.nextInt();
+
+        while (attackLevel < 1 || attackLevel > MAX_COMBINED_LEVEL - 1) {
+            System.out.print("Sorry. The attack level must be between 1 and 49:");
+            attackLevel = myScan.nextInt();
+
+        }
+
+        tempPokemon.hitPoints = hitPoints;
+
+        //int defenseLevel = 0;
+        System.out.print("Enter your defense level (1-" + (MAX_COMBINED_LEVEL - attackLevel) + "): ");
+        int defenseLevel = myScan.nextInt();
+
+        while (defenseLevel < 1 || defenseLevel > MAX_COMBINED_LEVEL - attackLevel) {
+            System.out.print("Sorry. The attack level must be between 1 and" + (MAX_COMBINED_LEVEL - attackLevel));
+            defenseLevel = myScan.nextInt();
+
+        }
+
+        myScan.nextLine();
+
+
+
 
         return tempPokemon;
     }
